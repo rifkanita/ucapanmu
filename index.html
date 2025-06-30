@@ -1,0 +1,95 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Selamat Ulang Tahun!</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(#ffdee9, #b5fffc);
+      font-family: 'Segoe UI', sans-serif;
+      color: white;
+      text-align: center;
+      overflow: hidden;
+    }
+
+    .container {
+      margin-top: 10vh;
+      animation: fadeIn 2s ease-in-out;
+    }
+
+    h1 {
+      font-size: 3em;
+      margin-bottom: 0;
+      text-shadow: 2px 2px 5px rgba(0,0,0,0.3);
+    }
+
+    p {
+      font-size: 1.4em;
+      max-width: 600px;
+      margin: 20px auto;
+      padding: 0 20px;
+    }
+
+    img {
+      width: 200px;
+      border-radius: 50%;
+      box-shadow: 0 0 20px rgba(0,0,0,0.2);
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(50px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .confetti {
+      position: absolute;
+      width: 10px;
+      height: 10px;
+      background: yellow;
+      animation: fall 3s infinite ease-in;
+      top: 0;
+    }
+
+    @keyframes fall {
+      0% { transform: translateY(-10px) rotate(0deg); opacity: 1; }
+      100% { transform: translateY(100vh) rotate(360deg); opacity: 0; }
+    }
+
+    audio {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+
+  <audio autoplay loop>
+    <source src="lagu.mp3" type="audio/mpeg">
+  </audio>
+
+  <div class="container">
+    <img src="foto.jpg" alt="Foto Ulang Tahun">
+    <h1>Selamat Ulang Tahun 🎉</h1>
+    <p>
+      Semoga di hari spesial ini, kamu diberikan kebahagiaan, kesehatan, dan keberkahan yang tak terhingga.  
+      Terima kasih sudah jadi pribadi yang selalu menyebar kebaikan.  
+      Tetap semangat dan terus bersinar!
+    </p>
+    <p>Dari: Sahabatmu 💖</p>
+  </div>
+
+  <script>
+    for (let i = 0; i < 30; i++) {
+      const confetti = document.createElement("div");
+      confetti.className = "confetti";
+      confetti.style.left = Math.random() * 100 + "vw";
+      confetti.style.backgroundColor = `hsl(${Math.random()*360}, 70%, 60%)`;
+      confetti.style.animationDelay = (Math.random() * 3) + "s";
+      document.body.appendChild(confetti);
+    }
+  </script>
+
+</body>
+</html>
